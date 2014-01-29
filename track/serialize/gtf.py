@@ -76,6 +76,8 @@ class SerializerGTF(Serializer):
                     attr = attribute_str(self.fields[n], feature[i])
                     line[7] = '%s %s' % (line[7], attr)
 
+        # Convert end from UCSC back to Ensembl #
+        line[3] = line[3] - 1
         # Convert the strand #
         line[5] = int_to_strand(line[5])
         # Convert the frame #

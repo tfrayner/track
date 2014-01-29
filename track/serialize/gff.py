@@ -41,6 +41,8 @@ class SerializerGFF(Serializer):
         for n,i in enumerate(self.indices):
             if i == -1: line[n] = defaults[n]
             else:       line[n] = feature[i]
+        # Convert end from UCSC back to Ensembl #
+        line[3] = line[3] - 1
         # Convert the score #
         line[4] = format_float(line[4])
         # Convert the strand #

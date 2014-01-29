@@ -54,7 +54,8 @@ class ParserGTF(Parser):
             # Start and end fields #
             try:
                 items[2] = int(items[2])
-                items[3] = int(items[3])
+                # Convert Ensembl numbering to UCSC convention #
+                items[3] = int(items[3]) + 1
             except ValueError:
                 self.handler.error("The track%s has non integers as interval bounds", self.path, number)
             # Strand field #

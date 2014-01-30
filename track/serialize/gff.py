@@ -32,7 +32,7 @@ class SerializerGFF(Serializer):
         if not info: info = {}
         info['type'] = 'gff'
         info['converted_by'] = __package__
-        self.file.write("track " + ' '.join([k + '="' + v + '"' for k, v in info.items()]) + '\n')
+        self.file.write("# track " + ' '.join([k + '="' + v + '"' for k, v in info.items()]) + '\n')
         self.tracks.append(self.path)
 
     def newFeature(self, chrom, feature):
